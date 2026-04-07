@@ -19,6 +19,10 @@ html {
     scroll-behavior: smooth;
 }
 
+section {
+    scroll-margin-top: 8rem;
+}
+
 body {
     background: var(--bg-color);
     color: var(--text-color);
@@ -94,6 +98,17 @@ body {
 .navbar a:hover,
 .navbar a.active {
     color: var(--primary-color);
+}
+
+.navbar a:focus-visible,
+.contact-btn:focus-visible,
+.btn:focus-visible,
+.social a:focus-visible,
+.footer-list a:focus-visible,
+.form input:focus-visible,
+.form textarea:focus-visible {
+    outline: 3px solid rgba(0, 212, 255, 0.65);
+    outline-offset: 3px;
 }
 
 .contact-btn {
