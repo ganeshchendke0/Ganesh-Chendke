@@ -147,6 +147,16 @@ world applications and continuously improving problem-solving and technical skil
                     <span>Sensors</span>
                 </div>
             </div>
+            <div class="project-box">
+                <h3>Portfolio Website</h3>
+                <p>Modern personal portfolio website showcasing skills, projects, certificates, and professional experience. Built with responsive HTML/CSS design featuring smooth navigation, interactive components, and integrated social links.</p>
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Responsive Design</span>
+                    <span>Portfolio</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -229,26 +239,76 @@ world applications and continuously improving problem-solving and technical skil
     <!-- Contact Section -->
     <section class="contact-form" id="contact">
         <h2 class="contact-heading">Contact <span>Me</span></h2>
-        <form class="form" action="#" method="post">
+        <form class="form" id="contactForm">
             <div class="input-box">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email" required>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-box">
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="text" placeholder="Subject" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
             </div>
-            <textarea placeholder="Your Message" cols="30" rows="10" required></textarea>
+            <textarea id="message" name="message" placeholder="Your Message" cols="30" rows="10" required></textarea>
             <input type="submit" value="Send Message" class="btn btn-primary">
+            <div id="formMessage" style="display: none; margin-top: 15px; padding: 10px; border-radius: 5px;"></div>
         </form>
     </section>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            const messageDiv = document.getElementById('formMessage');
+            
+            try {
+                const response = await fetch('/send-message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                messageDiv.style.display = 'block';
+                
+                if (result.success) {
+                    messageDiv.style.backgroundColor = '#d4edda';
+                    messageDiv.style.color = '#155724';
+                    messageDiv.style.borderLeft = '4px solid #28a745';
+                    messageDiv.textContent = result.message;
+                    document.getElementById('contactForm').reset();
+                } else {
+                    messageDiv.style.backgroundColor = '#f8d7da';
+                    messageDiv.style.color = '#721c24';
+                    messageDiv.style.borderLeft = '4px solid #dc3545';
+                    messageDiv.textContent = result.message;
+                }
+            } catch (error) {
+                messageDiv.style.display = 'block';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.borderLeft = '4px solid #dc3545';
+                messageDiv.textContent = 'Error sending message. Please try again.';
+                console.error('Error:', error);
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="social">
             <a href="https://github.com/ganeshchendke0" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://www.linkedin.com/in/ganesh-chendke-b83b832a9" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
         </div>
