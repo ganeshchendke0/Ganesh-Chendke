@@ -319,6 +319,74 @@ body::before {
     font-size: 1rem;
 }
 
+/* ============ Education Section ============ */
+.education {
+    padding: 5rem 7%;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 0, 110, 0.05));
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.education .heading {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.education .heading span {
+    color: var(--primary-color);
+}
+
+.education-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.education-card {
+    background: var(--light-bg);
+    padding: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 30px rgba(105, 226, 255, 0.18);
+}
+
+.education-year {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(0, 212, 255, 0.16);
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.education-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-color);
+}
+
+.education-card p {
+    color: rgba(255, 255, 255, 0.84);
+    margin-bottom: 0.7rem;
+    line-height: 1.7;
+}
+
+.education-score {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
 /* ============ Skills Section ============ */
 .skills {
     padding: 5rem 7%;
