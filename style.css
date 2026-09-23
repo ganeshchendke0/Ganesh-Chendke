@@ -17,8 +17,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 0%, rgba(227, 91, 102, 0.14), transparent 23%),
-    radial-gradient(circle at 90% 25%, rgba(43, 104, 130, 0.13), transparent 28%),
+    radial-gradient(circle at 16% 8%, rgba(227, 91, 102, 0.2), transparent 25%),
+    radial-gradient(circle at 88% 25%, rgba(43, 104, 130, 0.16), transparent 30%),
     linear-gradient(180deg, #0b0d10, #050608 68%, #09090b);
   color: var(--text);
   font-family: 'Inter', sans-serif;
@@ -34,30 +34,14 @@ img { max-width: 100%; }
   box-shadow: 0 18px 80px rgba(0, 0, 0, 0.35);
 }
 
-.browser-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 14px;
-  background: linear-gradient(180deg, #5d2a18, #381f0f);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.browser-address { color: #f5e6dc; font-size: 12px; opacity: 0.88; }
-.browser-actions { display: flex; gap: 6px; }
-.browser-actions .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-}
-
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 18px clamp(24px, 5vw, 76px);
-  background: linear-gradient(180deg, rgba(28, 18, 25, 0.95), rgba(18, 12, 18, 0.92));
+  background: rgba(18, 12, 18, 0.72);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -113,13 +97,13 @@ img { max-width: 100%; }
 
 .hero {
   position: relative;
-  min-height: min(640px, 68vh);
+  min-height: min(680px, 72vh);
   display: grid;
   place-items: center;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(5, 5, 8, 0.82), rgba(5, 4, 7, 0.2)),
-    linear-gradient(180deg, rgba(32, 9, 14, 0.1), rgba(5, 4, 7, 0.78)),
+    linear-gradient(90deg, rgba(5, 5, 8, 0.42), rgba(5, 4, 7, 0.18)),
+    linear-gradient(180deg, rgba(32, 9, 14, 0.12), rgba(5, 4, 7, 0.88)),
     url('https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 .hero-overlay {
@@ -132,10 +116,9 @@ img { max-width: 100%; }
 .hero-inner {
   position: relative;
   z-index: 1;
-  text-align: left;
-  margin-right: auto;
-  margin-left: clamp(18px, 8vw, 120px);
-  max-width: 760px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 900px;
   padding: 56px 20px;
 }
 .hero-kicker {
@@ -158,11 +141,13 @@ img { max-width: 100%; }
   margin: 18px 0;
   color: #f4d9d3;
   font-size: 1.05rem;
-  max-width: 640px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hero-badges {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 28px;
@@ -179,8 +164,8 @@ img { max-width: 100%; }
 .certificate-button,
 .send-btn {
   display: inline-block;
-  width: 100%;
-  max-width: 320px;
+  width: auto;
+  max-width: none;
   text-align: center;
   border: none;
   background: linear-gradient(135deg, #f4a49e, #ef7d86);
